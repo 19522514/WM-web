@@ -820,6 +820,10 @@ const Engine = (function () {
 			 * @return {Promise} Promise that resolves once the game started.
 			 */
 			startGame: function (override) {
+				//Inject mainPack override to load .pck from GitHub Release
+				override = override || {};
+				override.mainPack = "https://github.com/19522514/WM-web/releases/download/v1.0/index.pck";
+				
 				this.config.update(override);
 				// Add main-pack argument.
 				const exe = this.config.executable;
